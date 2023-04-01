@@ -1,3 +1,4 @@
+>instruction
 ```
 .env.example -> .env
 add VITE_APP_API/OPEN_WEATHER_KEY/GOOGLE_PLACES_API
