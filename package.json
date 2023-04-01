@@ -1,0 +1,28 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "watch": "vite build --watch"
+    },
+    "devDependencies": {
+        "@babel/plugin-proposal-nullish-coalescing-operator": "^7.18.6",
+        "@babel/plugin-proposal-optional-chaining": "^7.21.0",
+        "@babel/preset-env": "^7.21.4",
+        "axios": "^1.1.2",
+        "babel-loader": "^9.1.2",
+        "laravel-vite-plugin": "^0.7.2",
+        "sass": "^1.60.0",
+        "sass-loader": "^13.2.2",
+        "vite": "^4.0.0",
+        "vue": "^3.2.47",
+        "vue-router": "^4.1.6",
+        "vue-template-compiler": "^2.7.14",
+        "vuex": "^4.1.0"
+    },
+    "dependencies": {
+        "@vitejs/plugin-vue": "^4.1.0",
+        "gmap-vue": "^3.5.4",
+        "vue-loader": "^17.0.1"
+    }
+}
