@@ -3,30 +3,45 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Wather\WeatherGetRequest;
+use App\Http\Resources\Weather\WeatherHistoryCollection;
 use App\Http\Resources\Weather\WeatherResource;
+use App\Repositories\UserRepository;
 use App\Services\WeatherService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class WeatherController extends Controller
 {
+    protected WeatherService $weatherService;
+
+    public function __construct(WeatherService $weatherService)
+    {
+        $this->weatherService = $weatherService;
+    }
 
     /**
-     * @param  Request  $request
-     * @param  WeatherService  $weatherService
+     * @param  WeatherGetRequest  $request
      * @return WeatherResource|JsonResponse
      */
-    public function __invoke(Request $request, WeatherService $weatherService): WeatherResource|JsonResponse
+    public function show(WeatherGetRequest $request): WeatherResource|JsonResponse
     {
         $response = Http::asForm()->get(
-            'http://api.openweathermap.org/data/2.5/weather?q='.$request->city.'&APPID='.env('OPEN_WEATHER_KEY')
+            config('app.openweathermap.url').$request->validated()['city'].'&APPID='.config('app.openweathermap.key')
         );
 
         if ($response->successful()) {
-            return new WeatherResource($weatherService->store($response, $request->city));
+            return new WeatherResource($this->weatherService->store($response));
         }
 
         return response()->json(['message' => 'Wrong city name'], 400);
+    }
+
+    /**
+     * @return WeatherHistoryCollection
+     */
+    public function history(): WeatherHistoryCollection
+    {
+        return new WeatherHistoryCollection(UserRepository::getUserWeatherHistory());
     }
 }

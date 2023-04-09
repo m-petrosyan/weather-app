@@ -9,21 +9,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class WeatherService
 {
-    public function store(object $response, string $city): Builder|Model
+    public function store(object $response): Builder|Model
     {
-        $weather = Weather::query()->updateOrCreate(
-            ['city_id' => $response['sys']['id']],
+        $weather = Weather::query()->create(
             [
-                'city_id' => $response['sys']['id'],
-                'location' => $response['name'],
-                'description' => $response['weather'][0]['description'],
-                'temp' => $response['main']['temp'],
-                'temp_max' => $response['main']['temp_max'],
-                'temp_min' => $response['main']['temp_min'],
+                'city_id' => $response['sys']['id'] ?? null,
+                'location' => $response['name'] ?? null,
+                'description' => $response['weather'][0]['description'] ?? null,
+                'temp' => $response['main']['temp'] ?? null,
+                'temp_max' => $response['main']['temp_max'] ?? null,
+                'temp_min' => $response['main']['temp_min'] ?? null,
             ]
+
         );
 
-        UserRepository::addUserWeatherHistory()->create(['text' => $city]);
+        UserRepository::addUserWeatherHistory()->create(['weather_id' => $weather->id]);
 
         return $weather;
     }

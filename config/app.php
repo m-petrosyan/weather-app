@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool)env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -141,6 +141,11 @@ return [
     'maintenance' => [
         'driver' => 'file',
         // 'store'  => 'redis',
+    ],
+
+    'openweathermap' => [
+        'url' => env('OPEN_WEATHER_URL'),
+        'key' => env('OPEN_WEATHER_KEY')
     ],
 
     /*

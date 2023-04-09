@@ -50,6 +50,6 @@ class User extends Authenticatable
 
     public function weatherHistory(): HasMany
     {
-        return $this->hasMany(WeatherHistory::class);
+        return $this->hasMany(WeatherHistory::class)->with('weather');
     }
 }

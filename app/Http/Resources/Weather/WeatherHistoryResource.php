@@ -16,7 +16,11 @@ class WeatherHistoryResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'text' => $this->text,
+            'city' => $this->weather->location,
+            'description' => $this->weather->description,
+            'temp' => $this->weather->temp,
+            'temp_max' => $this->weather->temp_max,
+            'temp_min' => $this->weather->temp_min,
             'date' => $this->created_at->format('Y-m-d'),
         ];
     }
