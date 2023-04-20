@@ -1,21 +1,14 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import Home from '../pages/home.vue'
 import Signup from "../components/auth/Signup.vue";
 import Signin from "../components/auth/Signin.vue";
 import AuthLayouth from "../components/auth/AuthLayouth.vue";
-import WeatherHistory from "../pages/WeatherHistory.vue";
 
 const routes = [
-    {
-        path: '/',
-        name: 'home',
-        component: Home
-    },
-    {
-        path: '/weather-history',
-        name: 'history',
-        component: WeatherHistory,
-    },
+    // {
+    //     path: '/weather-history',
+    //     name: 'history',
+    //     component: WeatherHistory,
+    // },
     {
         path: '/',
         component: AuthLayouth,

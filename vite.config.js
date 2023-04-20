@@ -12,7 +12,7 @@ export default defineConfig({
             template: {
                 transformAssetUrls: {
                     base: null,
-                    includeAbsolute: true
+                    includeAbsolute: false
                 },
             }
         })

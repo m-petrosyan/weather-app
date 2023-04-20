@@ -22,7 +22,7 @@
     },
     "dependencies": {
         "@vitejs/plugin-vue": "^4.1.0",
-        "gmap-vue": "^3.5.4",
+        "ui": "^0.2.4",
         "vue-loader": "^17.0.1"
     }
 }

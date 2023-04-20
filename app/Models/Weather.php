@@ -11,10 +11,15 @@ class Weather extends Model
 
     protected $fillable = [
         'city_id',
-        'location',
+        'country',
+        'city',
         'description',
         'temp',
         'temp_max',
         'temp_min',
+        'humidity',
+        'wind',
+        'pressure',
+        'clouds',
     ];
 }

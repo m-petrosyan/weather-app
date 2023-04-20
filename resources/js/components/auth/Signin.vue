@@ -1,11 +1,9 @@
 <template>
     <form @submit.prevent="signIn">
         <div>
-            <label for="email">username</label>
-            <input name="email" v-model="data.email" placeholder="username">
+            <input type="email" name="email" v-model="data.email" placeholder="email">
         </div>
         <div>
-            <label for="password">password</label>
             <input name="password" v-model="data.password" placeholder="password" type="password">
         </div>
         <input type="submit" value="login">
@@ -27,7 +25,9 @@ export default {
         signIn() {
             this.$store.dispatch('signIn', this.data).then(() => {
                 this.$store.dispatch('auth').then(() => {
-                    this.$router.push({name: 'home'})
+                    this.$store.dispatch('getHistory').then(() => {
+                        this.$router.push('/')
+                    })
                 })
             })
         }

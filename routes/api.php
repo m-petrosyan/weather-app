@@ -18,9 +18,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('user', [UserController::class, 'store']);
 Route::post('user/login', [AuthController::class, 'login']);
+Route::get('weather', [WeatherController::class, 'show']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::get('user', [UserController::class, 'auth']);
-    Route::get('weather', [WeatherController::class, 'show']);
+    Route::get('user', [AuthController::class, 'auth']);
     Route::get('weather/history', [WeatherController::class, 'history']);
 });

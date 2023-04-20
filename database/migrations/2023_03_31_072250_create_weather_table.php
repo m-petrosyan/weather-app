@@ -13,11 +13,16 @@ return new class extends Migration {
         Schema::create('weather', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('city_id');
-            $table->string('location')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
             $table->string('description')->nullable();
             $table->double('temp')->nullable();
             $table->double('temp_max')->nullable();
             $table->double('temp_min')->nullable();
+            $table->double('wind')->nullable();
+            $table->smallInteger('humidity')->nullable();
+            $table->integer('pressure')->nullable();
+            $table->integer('clouds')->nullable();
             $table->timestamps();
         });
     }

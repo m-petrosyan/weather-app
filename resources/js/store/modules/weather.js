@@ -23,8 +23,8 @@ export default {
         },
     },
     actions: {
-        getWeather({commit}, city) {
-            return getRequest(`/weather?city=${city}`)
+        getWeather({commit}, {city, units}) {
+            return getRequest(`/weather?city=${city}&units=${units}`)
                 .then(response => {
                     commit("setWeather", response.data)
                     commit('setWeatherError', null)

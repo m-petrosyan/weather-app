@@ -20,6 +20,9 @@ export default {
         setAuth(state, data) {
             state.auth = data
         },
+        setHistory(state, data) {
+            state.auth.history = data
+        },
     },
     actions: {
         signUp({commit}, data) {
@@ -51,6 +54,17 @@ export default {
                 })
                 .catch(error => {
                     sessionStorage.removeItem('token')
+                    commit('setUserError', error.message)
+                    return Promise.reject(error)
+                })
+        },
+        getHistory({commit}) {
+            return getRequest('/weather/history')
+                .then(response => {
+                    commit("setHistory", response.data)
+                    commit('setUserError', null)
+                })
+                .catch(error => {
                     commit('setUserError', error.message)
                     return Promise.reject(error)
                 })

@@ -15,13 +15,18 @@ class WeatherHistoryResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
-            'city' => $this->weather->location,
-            'description' => $this->weather->description,
-            'temp' => $this->weather->temp,
-            'temp_max' => $this->weather->temp_max,
-            'temp_min' => $this->weather->temp_min,
-            'date' => $this->created_at->format('Y-m-d'),
+            'id' => $this->id ?? null,
+            'city' => $this['city'],
+            'country' => $this['country'],
+            'description' => $this['description'],
+            'temp' => $this['temp'],
+            'temp_max' => $this['temp_max'],
+            'temp_min' => $this['temp_min'],
+            'humidity' => $this['humidity'],
+            'wind' => $this['wind'],
+            'pressure' => $this['pressure'],
+            'clouds' => $this['clouds'],
+            'date' => isset($this['created_at']) ? $this->created_at->format('D, d M') : now()->format('D, d M'),
         ];
     }
 }
