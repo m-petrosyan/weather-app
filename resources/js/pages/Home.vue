@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="wrapper"
+        <div class="wrapper" :class="{data: result}"
              :style="{backgroundImage: `url(${result ? getBg : defaultBg})`}">
             <div class="img-info">
                 <div class="info" v-if="result">
@@ -376,7 +376,9 @@ section {
         }
         @media (width < $s) {
             flex-direction: column;
-            height: auto;
+            &.data {
+                height: auto;
+            }
 
             .main-info {
                 width: 100%;
