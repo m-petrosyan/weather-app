@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://files.catbox.moe/1mpmh4.jpg" alt="tms logo">
+ 
 </div>
 
 
