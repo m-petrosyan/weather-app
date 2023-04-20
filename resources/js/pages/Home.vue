@@ -164,9 +164,9 @@ export default {
 </script>
 
 <style lang="scss">
-section {
-    height: 100vh;
+@import "@/assets/styles/vars.scss";
 
+section {
     .wrapper {
         display: flex;
         height: 100vh;
@@ -190,6 +190,9 @@ section {
                     .degrees {
                         font-weight: 800;
                         font-size: var(--text-extra-big);
+                        @media (width < 768px) {
+                            font-size: var(--text-big);
+                        }
                     }
 
                     .date-city {
@@ -306,6 +309,80 @@ section {
                         }
                     }
                 }
+            }
+        }
+
+        @media (width < $m) {
+
+            .main-info {
+                width: 50%;
+                padding: 20px;
+
+                .search-submit {
+                    width: 50px;
+                    height: 50px;
+
+                    img {
+                        height: 20px;
+                    }
+                }
+
+                .info {
+                    .search-area {
+                        .search-input {
+                            font-size: var(--text-small);
+                        }
+                    }
+
+                    .info-table {
+                        tbody {
+                            tr {
+                                td {
+                                    p {
+                                        font-size: var(--text-small);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+            }
+
+            .img-info {
+                width: 50%;
+                align-items: center;
+                text-align: center;
+
+                .info {
+                    .date-temp {
+                        align-items: center;
+                        gap: 30px 0;
+                        flex-direction: column;
+
+                        .icon-desc {
+                            margin-left: 0;
+                        }
+
+                        .date-city {
+                            .city {
+                                font-size: var(--text-normal);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @media (width < $s) {
+            flex-direction: column;
+            height: auto;
+
+            .main-info {
+                width: 100%;
+            }
+            .img-info {
+                width: 100%;
             }
         }
     }
