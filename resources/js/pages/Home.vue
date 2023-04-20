@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="wrapper" :class="{data: result}"
+        <div class="wrapper"
              :style="{backgroundImage: `url(${result ? getBg : defaultBg})`}">
             <div class="img-info">
                 <div class="info" v-if="result">
