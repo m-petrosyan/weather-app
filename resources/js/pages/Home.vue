@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="wrapper"
+        <div class="wrapper" :class="{data: result}"
              :style="{backgroundImage: `url(${result ? getBg : defaultBg})`}">
             <div class="img-info">
                 <div class="info" v-if="result">
@@ -164,7 +164,7 @@ export default {
 </script>
 
 <style lang="scss">
-//@import "@/assets/styles/vars.scss";
+@import "@/assets/styles/vars.scss";
 
 section {
     .wrapper {
@@ -312,81 +312,81 @@ section {
             }
         }
 
-        //@media (width < $m) {
-        //
-        //    .main-info {
-        //        width: 50%;
-        //        padding: 20px;
-        //
-        //        .search-submit {
-        //            width: 50px;
-        //            height: 50px;
-        //
-        //            img {
-        //                height: 20px;
-        //            }
-        //        }
-        //
-        //        .info {
-        //            .search-area {
-        //                .search-input {
-        //                    font-size: var(--text-small);
-        //                }
-        //            }
-        //
-        //            .info-table {
-        //                tbody {
-        //                    tr {
-        //                        td {
-        //                            p {
-        //                                font-size: var(--text-small);
-        //                            }
-        //                        }
-        //                    }
-        //                }
-        //            }
-        //        }
-        //
-        //
-        //    }
-        //
-        //    .img-info {
-        //        width: 50%;
-        //        align-items: center;
-        //        text-align: center;
-        //
-        //        .info {
-        //            .date-temp {
-        //                align-items: center;
-        //                gap: 30px 0;
-        //                flex-direction: column;
-        //
-        //                .icon-desc {
-        //                    margin-left: 0;
-        //                }
-        //
-        //                .date-city {
-        //                    .city {
-        //                        font-size: var(--text-normal);
-        //                    }
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
-        //@media (width < $s) {
-        //    flex-direction: column;
-        //    &.data {
-        //        height: auto;
-        //    }
-        //
-        //    .main-info {
-        //        width: 100%;
-        //    }
-        //    .img-info {
-        //        width: 100%;
-        //    }
-        //}
+        @media (width < $m) {
+
+            .main-info {
+                width: 50%;
+                padding: 20px;
+
+                .search-submit {
+                    width: 50px;
+                    height: 50px;
+
+                    img {
+                        height: 20px;
+                    }
+                }
+
+                .info {
+                    .search-area {
+                        .search-input {
+                            font-size: var(--text-small);
+                        }
+                    }
+
+                    .info-table {
+                        tbody {
+                            tr {
+                                td {
+                                    p {
+                                        font-size: var(--text-small);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+            }
+
+            .img-info {
+                width: 50%;
+                align-items: center;
+                text-align: center;
+
+                .info {
+                    .date-temp {
+                        align-items: center;
+                        gap: 30px 0;
+                        flex-direction: column;
+
+                        .icon-desc {
+                            margin-left: 0;
+                        }
+
+                        .date-city {
+                            .city {
+                                font-size: var(--text-normal);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @media (width < $s) {
+            flex-direction: column;
+            &.data {
+                height: auto;
+            }
+
+            .main-info {
+                width: 100%;
+            }
+            .img-info {
+                width: 100%;
+            }
+        }
     }
 }
 </style>
