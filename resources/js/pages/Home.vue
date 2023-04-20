@@ -129,6 +129,7 @@ export default {
         google.maps.event.addListener(autocomplate, 'place_changed', () => {
             this.city = autocomplate.getPlace().formatted_address;
         });
+        this.getWeather()
     },
     methods: {
         getWeather() {
