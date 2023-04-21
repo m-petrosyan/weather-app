@@ -179,9 +179,12 @@ section {
             justify-content: center;
             align-items: flex-end;
             color: var(--light);
+            padding: 50px;
 
             .info {
-                padding: 70px;
+                padding: 25px;
+                border-radius: 10px;
+                background-color: #0000001a;
 
                 .date-temp {
                     display: flex;
@@ -191,9 +194,6 @@ section {
                     .degrees {
                         font-weight: 800;
                         font-size: var(--text-extra-big);
-                        @media (width < 768px) {
-                            font-size: var(--text-big);
-                        }
                     }
 
                     .date-city {
@@ -313,7 +313,7 @@ section {
             }
         }
 
-        @media (width < $m) {
+        @media (width <= $m) {
 
             .main-info {
                 width: 50%;
@@ -347,8 +347,6 @@ section {
                         }
                     }
                 }
-
-
             }
 
             .img-info {
@@ -361,6 +359,10 @@ section {
                         align-items: center;
                         gap: 30px 0;
                         flex-direction: column;
+
+                        .degrees {
+                            font-size: var(--text-big);
+                        }
 
                         .icon-desc {
                             margin-left: 0;
@@ -375,7 +377,7 @@ section {
                 }
             }
         }
-        @media (width < $s) {
+        @media (width <= $s) {
             flex-direction: column;
             &.data {
                 height: auto;
