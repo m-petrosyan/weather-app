@@ -1,5 +1,5 @@
 <div align="center">
- 
+ <img src="https://files.catbox.moe/13ubgg.jpg" alt="cover">
 </div>
 
 
@@ -7,6 +7,8 @@
 
 
 Site utilizes the openweathermap API to provide accurate and up-to-date weather forecasts for cities all around the world. Here's a quick guide on how to use our site:
+
+The site uses the google places api to search for city names
 
 Registration and Login:
 To fully utilize site, registering for an account. Once registered, you'll be able to save your favorite cities and access your search history. If you're already registered, simply log in with your email and password.
