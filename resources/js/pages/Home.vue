@@ -313,6 +313,10 @@ section {
             }
         }
 
+        @media (height <= $m) {
+            height: 100%;
+        }
+        
         @media (width <= $m) {
 
             .main-info {
